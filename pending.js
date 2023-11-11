@@ -78,3 +78,21 @@
 // mapLetters("froggy") ➞ { f: [0], r: [1], o: [2], g: [3, 4], y: [5] }
 //
 // mapLetters("grapes") ➞ { g: [0], r: [1], a: [2], p: [3], e: [4], s:
+
+// Create a function that takes an array of items and checks if the last item matches the rest of the array concatenated together.
+
+// PENDING
+
+// function matchLastItem(array) {
+//   let lastElement = array[array.length - 1];
+//   let seperateArray = [];
+//   for (let i = 0; i < array.length - 1; i++) {
+//       seperateArray.push(array[i]);
+//   }
+//   let joinString = `${seperateArray.join("")}`;
+//     return lastElement == joinString
+// }
+
+// console.log(matchLastItem(["rsq", "6hi", "g", "rsq6hig"]));
+// console.log(matchLastItem([1, 1, 1, "11"]));
+// console.log(matchLastItem([8, "thunder", true, "8thundertrue"]));

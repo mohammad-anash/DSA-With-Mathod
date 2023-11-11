@@ -428,3 +428,461 @@
 // console.log(firstRepeat("Gandalf"));
 // console.log(firstRepeat("Balrog"));
 // console.log(firstRepeat("Isildur"));
+
+// In each input array, every number repeats at least once, except for two. Write a function that returns the two unique numbers.
+
+// function returnUnique(array) {
+//   const store = [];
+
+//   for (let i = 0; i < array.length; i++) {
+//     let currentvalue = true;
+
+//     for (let j = 0; j < array.length; j++) {
+//       if (i != j && array[i] == array[j]) {
+//         currentvalue = false;
+//         break;
+//       }
+//     }
+//     if (currentvalue) {
+//       store.push(array[i]);
+//     }
+//   }
+//   return store;
+// }
+
+// console.log(returnUnique([1, 9, 8, 8, 7, 6, 1, 6]));
+// console.log(returnUnique([5, 5, 2, 4, 4, 4, 9, 9, 9, 1]));
+// console.log(returnUnique([9, 5, 6, 8, 7, 7, 1, 1, 1, 1, 1, 9, 8]));
+
+// SECOND APPROCH
+
+// function returnUnique(array) {
+//   var counts = {};
+//   array.forEach(function (element) {
+//     counts[element] = (counts[element] || 0) + 1;
+//   });
+
+//   return array.filter((element) => {
+//     return counts[element] === 1;
+//   });
+// }
+
+// console.log(returnUnique([1, 9, 8, 8, 7, 6, 1, 6]));
+// console.log(returnUnique([5, 5, 2, 4, 4, 4, 9, 9, 9, 1]));
+// console.log(returnUnique([9, 5, 6, 8, 7, 7, 1, 1, 1, 1, 1, 9, 8]));
+
+// You are given two arrays. The elements in arr1 threw a party and started to mix around. However, one of the elements got lost! Your task is to return the element which was lost.
+
+// function missing(arr1, arr2) {
+//   const store = [];
+//   for (let i = 0; i < arr1.length; i++) {
+//     if (!arr2.includes(arr1[i])) {
+//       store.push(arr1[i]);
+//     }
+//   }
+//   return store;
+// }
+
+// console.log(missing([1, 2, 3, 4, 5, 6, 7, 8], [1, 3, 4, 5, 6, 7, 8]));
+// console.log(
+//   missing([true, true, false, false, true], [false, true, false, true])
+// );
+// console.log(
+//   missing(["Jane", "is", "pretty", "ugly"], ["Jane", "is", "pretty"])
+// );
+
+// SECOND APPROCH
+
+// function missing(arr1, arr2) {
+//   return arr1.filter((element) => !arr2.includes(element));
+// }
+
+// console.log(missing([1, 2, 3, 4, 5, 6, 7, 8], [1, 3, 4, 5, 6, 7, 8]));
+// console.log(
+//   missing([true, true, false, false, true], [false, true, false, true])
+// );
+// console.log(
+//   missing(["Jane", "is", "pretty", "ugly"], ["Jane", "is", "pretty"])
+// );
+
+// / di gyi hui string ko reverse aur upper ko lower me lower ko upper me
+
+// function invert(string) {
+//   const breakStr = string.split("");
+//   let newstring = "";
+//   for (let i = breakStr.length - 1; i >= 0; i--) {
+//     if (breakStr[i].toUpperCase() == breakStr[i]) {
+//       newstring += breakStr[i].toLowerCase();
+//     } else if (breakStr[i].toLowerCase() === breakStr[i]) {
+//       newstring += breakStr[i].toUpperCase();
+//     }
+//   }
+//   return newstring;
+// }
+
+// console.log(invert("dLROW YM sI HsEt"));
+// console.log(invert("ytInIUgAsnOc"));
+// console.log(invert("step on NO PETS"));
+// console.log(invert("XeLPMoC YTiReTXeD"));
+
+// SECOND APPROCH
+
+// function invert(string) {
+//   return string
+//     .split("")
+//     .map((element) =>
+//       element.toUpperCase() == element
+//         ? element.toLowerCase()
+//         : element.toUpperCase()
+//     )
+//     .reverse()
+//     .join("");
+// }
+
+// console.log(invert("dLROW YM sI HsEt"));
+// console.log(invert("ytInIUgAsnOc"));
+// console.log(invert("step on NO PETS"));
+// console.log(invert("XeLPMoC YTiReTXeD"));
+
+// In this challenge, you have to obtain a sentence from the elements of a given matrix. In the matrix, each word of the sentence follows a columnar order from the top to the bottom, instead of the usual left-to-right order: it's time for transposition!
+
+// function transposeMatrix(array) {
+//   let newstring = [];
+//   for (let i = 0; i < array.length; i++) {
+//     for (let j = 0; j < array[i].length; j++) {
+//       newstring += array[j] + " ";
+//     }
+//   }
+//   return newstring;
+// }
+
+// console.log(transposeMatrix([["Enter"], ["the"], ["Matrix!"]]));
+// console.log(
+//   transposeMatrix([
+//     ["The", "are"],
+//     ["columns", "rows."],
+//   ])
+// );
+// console.log(
+//   transposeMatrix([
+//     ["You", "the"],
+//     ["must", "table"],
+//     ["transpose", "order."],
+//   ])
+// );
+
+// SECOND APPROCH
+
+// function transposeMatrix(array) {
+//   return array.flat().join(" ");
+// }
+
+// console.log(transposeMatrix([["Enter"], ["the"], ["Matrix!"]]));
+// console.log(
+//   transposeMatrix([
+//     ["The", "are"],
+//     ["columns", "rows."],
+//   ])
+// );
+// console.log(
+//   transposeMatrix([
+//     ["You", "the"],
+//     ["must", "table"],
+//     ["transpose", "order."],
+//   ])
+// );
+
+// Create a function that moves all capital letters to the front of a word.
+
+// function apToFront(string) {
+//   let upperletter = "";
+//   let smallletter = "";
+
+//   for (let i = 0; i < string.length; i++) {
+//     if (string[i].toUpperCase() == string[i]) {
+//       upperletter += string[i];
+//     } else {
+//       smallletter += string[i];
+//     }
+//   }
+//   return `${upperletter}${smallletter}`;
+// }
+
+// console.log(apToFront("hApPy"));
+// console.log(apToFront("moveMENT"));
+// console.log(apToFront("shOrtCAKE"));
+
+// SECOND APPROCH
+
+// function apToFront(string) {
+//   const upperCase = string
+//     .split("")
+//     .filter((element) => element.toUpperCase() === element);
+//   const lowerCase = string
+//     .split("")
+//     .filter((element) => element.toLowerCase() == element);
+
+//   return upperCase.join("") + lowerCase.join("");
+// }
+
+// console.log(apToFront("hApPy"));
+// console.log(apToFront("moveMENT"));
+// console.log(apToFront("shOrtCAKE"));
+
+// Write a function that reverses all the words in a sentence that start with a particular letter.
+
+// function specialReverse(string, letter) {
+//   const breakStr = string.split(" ");
+//   let newstring = "";
+
+//   for (let i = 0; i < breakStr.length; i++) {
+//     const firstletter = breakStr[i].charAt(0);
+//     if (firstletter === letter) {
+//       newstring += `${breakStr[i].split("").reverse().join("")} `;
+//     } else {
+//       newstring += `${breakStr[i]} `;
+//     }
+//   }
+//   return newstring;
+// }
+
+// console.log(specialReverse("word searches are super fun", "s"));
+// console.log(specialReverse("first man to walk on the moon", "m"));
+// console.log(specialReverse("peter piper picked pickled peppers", "p"));
+
+// SECOND APPRCOH
+
+// function specialReverse(string, letter) {
+//   return string
+//     .split(" ")
+//     .map((element) =>
+//       element === letter ? element.split("").reverse().join("") : element
+//     )
+//     .join(" ");
+// }
+
+// console.log(specialReverse("word searches are super fun", "s"));
+// console.log(specialReverse("first man to walk on the moon", "m"));
+// console.log(specialReverse("peter piper picked pickled peppers", "p"));
+
+// Create a function that will remove the letters "a", "b" and "c" from the given string and return the modified version. If the given string does not contain "a", "b", or "c", return null.
+
+// function removeABC(string) {
+//   const removeletter = "abc";
+//   const breakstring = string.split("");
+//   let newstring = "";
+//   for (let i = 0; i < breakstring.length; i++) {
+//     if (!removeletter.includes(breakstring[i])) {
+//       newstring += breakstring[i];
+//     }
+//   }
+//   return newstring;
+// }
+
+// console.log(removeABC("This might be a bit hard"));
+// console.log(removeABC("hello world!"));
+// console.log(removeABC(""));
+
+// SECOND APPROCH
+
+// function removeABC(string) {
+//   const removeletter = "abc";
+//   const breakStr = string
+//     .split("")
+//     .filter((element) => !removeletter.includes(element)).join("");
+//   return breakStr;
+// }
+
+// console.log(removeABC("This might be a bit hard"));
+// console.log(removeABC("hello world!"));
+// console.log(removeABC(""));
+
+// THRID APPROCH
+
+// function removeABC(string) {
+//   if (!/["abc"]/i.test(string)) {
+//     return -1;
+//   }
+//   return string.replaceAll("abc", "");
+// }
+
+// console.log(removeABC("This might be a bit hard"));
+// console.log(removeABC("hello world!"));
+// console.log(removeABC(""));
+
+// An isogram is a word that has no duplicate letters. Create a function that takes a string and returns either true or false depending on whether or not it's an "isogram".
+
+// function isIsogram(string) {
+//   const changeCase = string.toLowerCase();
+//   const breakStr = changeCase.split("");
+//   for (let i = 0; i < breakStr.length; i++) {
+//     for (let j = i + 1; j < breakStr.length; j++) {
+//       if (breakStr[i] == breakStr[j]) {
+//         return false;
+//       }
+//     }
+//   }
+//   return true;
+// }
+
+// console.log(isIsogram("Algorism"));
+// console.log(isIsogram("PasSword"));
+// console.log(isIsogram("Consecutive"));
+
+// / Create a function that takes a word and returns true if the word has two consecutive identical letters.\
+
+// function doubleLetters(string) {
+//   const breakstring = string.split("");
+//   for (let i = 0; i < breakstring.length; i++) {
+//     if (breakstring[i] == breakstring[i + 1]) {
+//       return true;
+//     }
+//   }
+//   return false;
+// }
+
+// console.log(doubleLetters("loop"));
+// console.log(doubleLetters("yummy"));
+// console.log(doubleLetters("orange"));
+// console.log(doubleLetters("munchkin"));
+
+// Your task is to create a function that takes a string, transforms all but the last four characters into "#" and returns the new masked string.
+
+// function maskify(string, n = 4) {
+//   let newString = "";
+
+//   for (let i = 0; i < string.length; i++) {
+//     const value = string.length - n;
+//     if (i < value) {
+//       newString += "#";
+//     } else {
+//       newString += string[i];
+//     }
+//   }
+
+//   return newString;
+// }
+
+// console.log(maskify("4556364607935616")); // Output: "############5616"
+// console.log(maskify("64607935616")); // Output: "#######5616"
+// console.log(maskify("1")); // Output: "1"
+// console.log(maskify("453534")); // Output: "####34"
+
+// Write a function that takes a string of one or more words as an argument and returns the same string, but with all five or more letter words reversed. Strings passed in will consist of only letters and spaces. Spaces will be included only when more than one word is present.
+
+// function reverse(string) {
+//   const words = string.split(" ");
+//   let newstring = "";
+
+//   for (let i = 0; i < words.length; i++) {
+//     const wordslength = words[i].length;
+
+//     if (wordslength > 5) {
+//       newstring += words[i].split("").reverse().join("");
+//     } else {
+//       newstring += words[i] + " ";
+//     }
+//   }
+//   return newstring;
+// }
+
+// console.log(reverse("Reverse"));
+// console.log(reverse("This is a typical sentence."));
+// console.log(reverse("The dog is big."));
+
+// Write a function that takes a string of one or more words as an argument and returns the same string, but with all five or more letter words reversed. Strings passed in will consist of only letters and spaces. Spaces will be included only when more than one word is present.
+
+// function reverse(string) {
+//   let result = "";
+//   let fiveLetter = string.split(" ");
+
+//   for (let i = 0; i < fiveLetter.length; i++){
+//     let words = fiveLetter[i].length;
+//     if (words > 5) {
+//       result += fiveLetter[i].split("").reverse().join("")
+//     } else {
+//       result += fiveLetter[i] + " "
+//     }
+//   }
+//   return result;
+// }
+
+// console.log(reverse("Reverse"));
+// console.log(reverse("This is a typical sentence."));
+// console.log(reverse("The dog is big."));
+
+// SECOND APPROCH
+
+// function reverse(string) {
+//   return string
+//     .split(" ")
+//     .map((element) =>
+//       element.length > 5 ? element.split("").reverse().join("") : element
+//     ).join(" ");
+// }
+
+// console.log(reverse("Reverse"));
+// console.log(reverse("This is a typical sentence."));
+// console.log(reverse("The dog is big."));
+
+// Create a function that takes two strings and returns either true or false depending on whether they're anagrams or not.]
+
+// function isAnagram(str1, str2) {
+//   const breakstr1 = str1.split("").sort().join("").toLowerCase();
+//   const breakstr2 = str2.split("").sort().join("").toLowerCase();
+//   return breakstr1 == breakstr2;
+// }
+
+// console.log(isAnagram("rcistian", "Cristina"));
+// console.log(isAnagram("Dave Barry", "Ray Adverb"));
+// console.log(isAnagram("Nope", "Note"));
+
+// reverse which array whos first element are even
+
+// function reverse_Even(array) {
+//   const firstletter = array[0];
+//   for (let i = 0; i < array.length; i++) {
+//     if (firstletter % 2 == 0) {
+//       return array.reverse();
+//     } else {
+//       return array;
+//     }
+//   }
+// }
+
+// console.log(reverse_Even([2, 5, 6, 3]));
+// console.log(reverse_Even([3, 7, 6, 3]));
+
+// write a function and check which word first letter has vowel and return uppercase this word
+
+// function vowel_Case(string) {
+//   const breakstring = string.split(" ");
+//   const vowel = "aeiou";
+//   let newstring = "";
+//   for (let i = 0; i < breakstring.length; i++) {
+//     const firstletter = breakstring[i].charAt(0);
+//     if (vowel.includes(firstletter)) {
+//       newstring += `${breakstring[i].toUpperCase()} `;
+//     } else {
+//       newstring += `${breakstring[i]} `;
+//     }
+//   }
+//   return newstring;
+// }
+
+// console.log(vowel_Case("my name is nash"));
+
+// SECOND APPROCH
+
+// function vowel_case(string) {
+//   const vowel = "aeiou";
+//   const breakstring = string.split(" ");
+//   return breakstring
+//     .map((element) => {
+//       const firstletter = element.charAt(0);
+//       return vowel.includes(firstletter) ? element.toUpperCase() : element;
+//     })
+//     .join(" ");
+// }
+
+// console.log(vowel_case("my name is anash"));
