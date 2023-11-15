@@ -96,3 +96,73 @@
 // console.log(matchLastItem(["rsq", "6hi", "g", "rsq6hig"]));
 // console.log(matchLastItem([1, 1, 1, "11"]));
 // console.log(matchLastItem([8, "thunder", true, "8thundertrue"]));
+
+
+
+// Ek matrix di gayi hai jismein har row aur column mein elements sorted hain. Tumhe ek function likhna hai jo ek diye gaye target number ko matrix mein search kare aur uske position (row, column) ko return kare agar number mojood hai, agar nahi toh -1 return kare.
+
+// const matrix = [
+//     [1, 4, 7, 11],
+//     [2, 5, 8, 12],
+//     [3, 6, 9, 16],
+//     [10, 13, 14, 17],
+//   ];
+  
+//   const target = 9;
+  
+//   function searchInMatrix(matrix, target) {
+//     let store = [];
+//     for (let i = 0; i < matrix.length; i++) {
+//       for (let j = i + 1; j < matrix.length; j++) {
+//         if (matrix[i] + matrix[j] == target) {
+//           store.push(matrix[i], matrix[j]);
+//         }
+//       }
+//     }
+//     return store;
+//   }
+  
+//   const result = searchInMatrix(matrix, target);
+//   console.log(result); // Expected output: { row: 2, column: 2 }
+  
+
+// Ek array hai jisme numbers hain. Use filter to create a new array containing only prime numbers.
+
+// Ek array hai jisme numbers hain. Use filter to create a new array containing only Fibonacci numbers.
+
+// Ek array hai, aur ek chunk size di gayi hai. Use filter to create an array of arrays where each sub-array represents a chunk of the original array with the specified size. 
+
+
+
+// Write a function that takes a matrix (a 2D array) and returns its transpose. The transpose of a matrix is obtained by swapping the rows and columns. Assume that the input matrix is a square matrix (number of rows = number of columns).
+
+// function transposeMatrix(matrix) {
+//     for (let i = 0; i < matrix.length; i++) {
+//       for (let j = i + 1; j < matrix[0]; j++) {
+//         let temp = matrix[i];
+//         matrix[j] = matrix[i];
+//         matrix[i] = temp;
+//       }
+//     }
+//     return matrix;
+//   }
+  
+//   let matrix = [
+//     [1, 2, 3],
+//     [4, 5, 6],
+//     [7, 8, 9],
+//   ];
+  
+//   let transposedMatrix = transposeMatrix(matrix);
+//   console.log(transposedMatrix);
+  
+
+// Write a function that takes an array of integers and finds the contiguous subarray with the largest sum. The function should return the sum of this subarray.
+
+// function findLargestSumSubarray(arr) {
+//     // Your code here to find the largest sum subarray
+// }
+
+// let numbers = [1, -2, 3, 10, -4, 7, 2, -5];
+// let largestSum = findLargestSumSubarray(numbers);
+// console.log(largestSum);

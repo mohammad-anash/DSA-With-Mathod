@@ -97,7 +97,7 @@
 
 // const result = countCategories(items);
 // console.log(result);
-// // Expected output: { Electronics: 2, Clothing: 2, Books: 2 }
+// Expected output: { Electronics: 2, Clothing: 2, Books: 2 }
 
 // Ek array di gayi hai jismein har element ek string hai, lekin kuch strings ko milake ek acronym (kuch words ke pehle letters ka combination) banaya jaana hai. Tumhe ek function likhna hai jo ye strings ko use karte hue ek acronym generate kare. Tumhe isko reduce method ka istemal karke solve karna hai.
 
@@ -116,11 +116,11 @@
 // SECOND APPROCH
 //
 // const words = ["World", "Health", "Organization"];
-//
+
 // function createAcronym(arr) {
 // return arr.reduce((acronym, words) => acronym + words.charAt(0), "");
 // }
-//
+
 // const result = createAcronym(words);
 // console.log(result); // Expected output: "WHO"
 
@@ -486,7 +486,7 @@
 // const result = createPalindromeSentence(words);
 // console.log(result); // Expected output: "level radar"
 
-// SECOND APPROCH
+// // SECOND APPROCH
 
 // const words = ["level", "Hello", "world", "radar", "is", "a", "sentence"];
 
@@ -574,9 +574,9 @@
 // Ek string di gayi hai, jismein words space ke saath separate hain. Tumhe ek function likhna hai jo ye string ko scan kare aur reduce method ka istemal karke har word ka total length calculate kare.
 
 // const inputString = "This is a sample string";
-
+// // console.log(inputString.length)
 // function calculateTotalWordLength(str) {
-//   const breakStr = str.split(" ").reduce((prev, curr) => {
+//   const breakStr = str.split("").reduce((prev, curr) => {
 //     const wordslength = curr.length;
 //     prev += wordslength;
 //     return prev;
@@ -587,7 +587,7 @@
 // const result = calculateTotalWordLength(inputString);
 // console.log(result); // Expected output: 20
 
-// SECOND APPROCH
+// // SECOND APPROCH
 
 // const inputString = "This is a sample string";
 
@@ -597,3 +597,81 @@
 
 // const result = calculateTotalWordLength(inputString);
 // console.log(result); // Expected output: 20
+
+// Ek array di gayi hai jismein har element ek number hai, lekin har number ka saath ek weight bhi diya gaya hai. Tumhe ek function likhna hai jo ye weights ka sum calculate kare, lekin har element ka weight utna hi barabar hoga jitna uska index. Tumhe isko reduce method ka istemal karke solve karna hai.
+
+// const numbers = [3, 7, 5, 2, 8];
+
+// function calculateWeightedSum(arr) {
+//   const weightedSum = arr.reduce((acc, curr, index) => acc + curr * index, 0);
+
+//   return weightedSum;
+// }
+
+// const result = calculateWeightedSum(numbers);
+// console.log(result); // Expected output: 64 (3*0 + 7*1 + 5*2 + 2*3 + 8*4)
+
+// write a function to uppercase the first word of string
+
+// function capitalize_String(string) {
+//   return string.split(" ").reduce((prev, curr) => {
+//     const getfirst = curr.charAt(0).toUpperCase() + curr.slice(1);
+//     prev += `${getfirst} `;
+//     return prev;
+//   }, "");
+// }
+
+// console.log(capitalize_String("this is the string"));
+
+// write a function to find uppercase letter in the string and fornt of atring
+// function apToFront(string) {
+//   const upperCaseLetter = string
+//     .split("")
+//     .reduce(
+//       (prev, curr) => (curr.toUpperCase() === curr ? prev + curr : prev),
+//       ""
+//     );
+//   const lowerCaseLetter = string
+//     .split("")
+//     .reduce(
+//       (prev, curr) => (curr.toLowerCase() === curr ? prev + curr : prev),
+//       ""
+//     );
+//   return `${upperCaseLetter}${lowerCaseLetter}`;
+// }
+
+// console.log(apToFront("HeLLo"));
+
+// Write a function that takes an array of arrays and returns an array containing the common elements present in all subarrays. Assume that all elements are of primitive data types (numbers, strings, etc.).
+
+// function findCommonElements(arrays) {
+//     return arrays.reduce((prev, curr) => {
+//       return prev.filter((element) => curr.includes(element));
+//     }, arrays[0]);
+//   }
+
+//   let data = [
+//     [1, 2, 3, 4, 5],
+//     [2, 3, 5, 7, 9],
+//     [3, 4, 5, 8, 10],
+//     // ... more arrays
+//   ];
+
+//   let commonElements = findCommonElements(data);
+//   console.log(commonElements);
+
+// Write a function that takes an array of integers and a target sum. The function should return an array containing the indices of the two numbers in the array that add up to the target sum.
+
+// function twoSum(nums, target) {
+//   return nums.reduce((prev, element, index, arr) => {
+//     if (element + arr[index + 1] == target) {
+//       prev.push(element, arr[index + 1]);
+//     }
+//     return prev;
+//   }, []);
+// }
+
+// let numbers = [2, 7, 11, 15];
+// let targetSum = 9;
+// let result = twoSum(numbers, targetSum);
+// console.log(result); // Output should be [0, 1] because numbers[0] + numbers[1] equals 9

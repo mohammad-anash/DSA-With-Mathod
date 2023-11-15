@@ -886,3 +886,356 @@
 // }
 
 // console.log(vowel_case("my name is anash"));
+
+// Ek array di gayi hai jismein har element ek object hai, aur har object ek student ko represent karta hai jismein name aur marks properties hain. Tumhe ek function likhna hai jo in students ke marks ka average calculate kare. Tumhe isko reduce method ka istemal karke solve karna hai.
+
+// const students = [
+//   { name: "Alice", marks: 85 },
+//   { name: "Bob", marks: 90 },
+//   { name: "Charlie", marks: 75 },
+//   { name: "David", marks: 95 },
+// ];
+
+// function calculateAverageMarks(arr) {
+//   let sum = 0;
+//   for (let i = 0; i < arr.length; i++) {
+//     sum += arr[i].marks;
+//   }
+//   return sum / arr.length;
+// }
+
+// const result = calculateAverageMarks(students);
+// console.log(result); // Expected output: 86.25
+
+// SECOND APPROCH
+
+// const students = [
+//   { name: "Alice", marks: 85 },
+//   { name: "Bob", marks: 90 },
+//   { name: "Charlie", marks: 75 },
+//   { name: "David", marks: 95 },
+// ];
+
+// function calculateAverageMarks(arr) {
+//   const sum = 0;
+//   const findAverage = arr.map((element) => element.marks);
+//   return (sum += findAverage) / 4;
+// }
+
+// const result = calculateAverageMarks(students);
+// console.log(result); // Expected output: 86.25
+
+// Ek array di gayi hai jismein har element ek number hai. Tumhe ek function likhna hai jo ye numbers ko multiply kare, lekin sirf un numbers ko jo greater than 5 hain. Tumhe isko reduce method ka istemal karke solve karna hai.
+
+// const numbers = [2, 6, 8, 4, 10, 3];
+
+// function multiplyGreaterThan5(arr) {
+//   let product = 1;
+//   for (let i = 0; i < arr.length; i++) {
+//     if (arr[i] > 5) {
+//       product *= arr[i];
+//     }
+//   }
+//   return product;
+// }
+
+// const result = multiplyGreaterThan5(numbers);
+// console.log(result); // Expected output: 480
+
+// SECOND APPROCH
+
+// const numbers = [2, 6, 8, 4, 10, 3];
+
+// function multiplyGreaterThan5(arr) {
+//   let product = 1;
+//   return arr.filter((element) =>
+//     element > 5 ? (product *= element) : product
+//   );
+// }
+
+// const result = multiplyGreaterThan5(numbers);
+// console.log(result); // Expected output: 480
+
+// Ek array di gayi hai jismein har element ek string hai, lekin kuch strings ko milake ek sentence banaya jaana hai. Tumhe ek function likhna hai jo ye strings ko concatenate kare, lekin sirf un strings ko shaamil kare jo 3 se zyada alphabets ke hain. Tumhe isko reduce method ka istemal karke solve karna hai.
+
+// const words = ["Hello", "world", "this", "is", "a", "sentence"];
+
+// function createSentence(arr) {
+//   let newstring = "";
+
+//   for (let i = 0; i < arr.length; i++) {
+//     if (arr[i].length > 4) {
+//       newstring += arr[i];
+//     }
+//   }
+//   return newstring;
+// }
+
+// const result = createSentence(words);
+// console.log(result); // Expected output: "Helloworldsentence"
+
+// SECOND APPROCH
+
+// const words = ["Hello", "world", "this", "is", "a", "sentence"];
+
+// function createSentence(arr) {
+//   const greaterthenFour = arr.filter((element) => element.length > 4);
+//   return greaterthenFour.join("");
+// }
+
+// const result = createSentence(words);
+// console.log(result); // Expected output: "Helloworldsentence"
+
+// Ek array di gayi hai jismein har element ek object hai, aur har object ek product ko represent karta hai jismein name aur price properties hain. Tumhe ek function likhna hai jo in products ka total price calculate kare, lekin sirf un products ka jo price property 1000 se zyada hai. Tumhe isko reduce method ka istemal karke solve karna hai.
+
+// const products = [
+//   { name: "Laptop", price: 1200 },
+//   { name: "Phone", price: 800 },
+//   { name: "Tablet", price: 1500 },
+//   { name: "Headphones", price: 500 },
+// ];
+
+// function calculateTotalPrice(arr) {
+//   let sum = 0;
+//   for (let i = 0; i < arr.length; i++) {
+//     const items = arr[i].price;
+//     if (items > 1000) {
+//       sum += items;
+//     }
+//   }
+//   return sum;
+// }
+
+// const result = calculateTotalPrice(products);
+// console.log(result); // Expected output: 2700
+
+// Ek array di gayi hai jismein har element ek object hai, aur har object ek student ko represent karta hai jismein name aur marks properties hain. Tumhe ek function likhna hai jo in students ke marks ka sum calculate kare, lekin sirf un students ka jo marks property 60 se zyada hai. Tumhe isko reduce method ka istemal karke solve karna hai.
+
+// const students = [
+//   { name: "Alice", marks: 75 },
+//   { name: "Bob", marks: 45 },
+//   { name: "Charlie", marks: 90 },
+//   { name: "David", marks: 55 },
+// ];
+
+// function calculateTotalMarks(arr) {
+//   let sum = 0;
+//   for (let i = 0; i < arr.length; i++) {
+//     const items = arr[i].marks;
+//     if (items > 60) {
+//       sum += items;
+//     }
+//   }
+//   return sum;
+// }
+
+// const result = calculateTotalMarks(students);
+// console.log(result); // Expected output: 165
+
+// Write a function that takes an array of arrays and merges them into a single array, removing any duplicate elements.
+
+// function mergeAndRemoveDuplicates(arrays) {
+//   const mergeArray = arrays.flat();
+//   const removeRepeated = Array.from(new Set(mergeArray));
+//   return removeRepeated;
+// }
+
+// let data = [
+//   [1, 2, 3, 4, 5],
+//   [2, 3, 5, 7, 9],
+//   [3, 4, 5, 8, 10],
+//   // ... more arrays
+// ];
+
+// let mergedAndUnique = mergeAndRemoveDuplicates(data);
+// console.log(mergedAndUnique);
+
+// output like this [1, 2, 3, 4, 5, 7, 9, 8, 10]
+
+// SECOND APPROCH
+
+// function mergeAndRemoveDuplicates(arrays) {
+//   const normalArray = arrays.flat();
+//   const store = [];
+
+//   for (let i = 0; i < normalArray.length; i++) {
+//     if (!store.includes(normalArray[i])) {
+//       store.push(normalArray[i]);
+//     }
+//   }
+//   return store;
+// }
+
+// let data = [
+//   [1, 2, 3, 4, 5],
+//   [2, 3, 5, 7, 9],
+//   [3, 4, 5, 8, 10],
+//   // ... more arrays
+// ];
+
+// let mergedAndUnique = mergeAndRemoveDuplicates(data);
+// console.log(mergedAndUnique);
+
+// Write a function that generates the Fibonacci series up to a specified number of terms. The Fibonacci series is a sequence of numbers where each number is the sum of the two preceding ones, usually starting with 0 and 1.
+
+// function generateFibonacciSeries(numTerms) {
+//   let arr = [0, 1];
+//   for (let i = 2; i < numTerms; i++) {
+//     arr.push(arr[i - 1] + arr[i - 2]);
+//   }
+//   return arr;
+// }
+
+// let terms = 8;
+// let fibonacciSeries = generateFibonacciSeries(terms);
+// console.log(fibonacciSeries);
+
+// Write a function that takes an array of integers and a target sum. The function should return an array containing the indices of the two numbers in the array that add up to the target sum.
+
+// function twoSum(nums, target) {
+//   return nums.reduce((prev, element, index, arr) => {
+//     if (element + arr[index + 1] == target) {
+//       prev.push(index, index + 1);
+//     }
+//     return prev;
+//   }, []);
+// }
+// let numbers = [2, 7, 11, 15];
+// let targetSum = 9;
+// let result = twoSum(numbers, targetSum);
+// console.log(result); // Output should be [0, 1] because numbers[0] + numbers[1] equals 9
+
+// SECOND APPROCH
+
+// function twoSum(nums, target) {
+//   return nums.reduce(
+//     (prev, element, index, arr) =>
+//       element + arr[index + 1] == target ? prev.concat(index, index + 1) : prev,
+//     []
+//   );
+// }
+
+// let numbers = [2, 7, 11, 15];
+// let targetSum = 9;
+// let result = twoSum(numbers, targetSum);
+// console.log(result); // Output should be [0, 1] because numbers[0] + numbers[1] equals 9
+
+// THIRD APPROCH
+
+// function twoSum(nums, target) {
+//   const store = [];
+//   for (let i = 0; i < nums.length; i++) {
+//     if (nums[i] + nums[i + 1] == target) {
+//       store.push(i, i + 1);
+//     }
+//   }
+//   return store;
+// }
+
+// let numbers = [2, 7, 11, 15];
+// let targetSum = 9;
+// let result = twoSum(numbers, targetSum);
+// console.log(result); // Output should be [0, 1] because numbers[0] + numbers[1] equals 9
+
+// Write a function that rotates an array to the right by a given number of steps. The rotation should be in-place, meaning the original array is modified.
+
+// function rotateArray(nums, k) {
+//   for (let i = 0; i <= k; i++) {
+//     const getvalue = nums.shift();
+//     nums.push(getvalue);
+//   }
+//   return nums;
+// }
+
+// let arrayToRotate = [1, 2, 3, 4, 5, 6, 7];
+// let steps = 3;
+// rotateArray(arrayToRotate, steps);
+// console.log(arrayToRotate); // Output should be [5, 6, 7, 1, 2, 3, 4]
+
+// SECOND APPRCOCH
+
+// function rotateArray(nums, k) {
+//   const getvalue = nums.slice(0, k);
+//   const value = nums.slice(k).concat(getvalue);
+//   console.log(value);
+// }
+
+// let arrayToRotate = [1, 2, 3, 4, 5, 6, 7];
+// let steps = 3;
+// let value = rotateArray(arrayToRotate, steps);
+// console.log(value); // Output should be [5, 6, 7, 1, 2, 3, 4]
+
+// Write a function that checks if two strings are anagrams. Anagrams are words or phrases that contain the same characters, but possibly in a different order.
+
+// function areAnagrams(str1, str2) {
+//   const modifyStr = str1.split("").sort().join("");
+//   const modifyStr2 = str2.split("").sort().join("");
+
+//   return modifyStr == modifyStr2;
+// }
+// let string1 = "listen";
+// let string2 = "silent";
+// let result = areAnagrams(string1, string2);
+// console.log(result); // Output should be true
+
+// Write a function to find the maximum number in an array using reduce.
+
+// function findmaximum(arr) {
+//   return arr.reduce((prev, curr) => {
+//     return prev < curr ? curr : prev;
+//   }, arr[0]);
+// }
+
+// console.log(findmaximum([1, 2, 3, 4, 5]));
+
+// Implement a function to generate the first n numbers of the Fibonacci sequence using the reduce method.
+
+// Function to generate Fibonacci sequence using reduce
+// function generateFibonacci(n) {
+//   const initialValues = [0, 1];
+
+//   const fibonacciSequence = Array.from({ length: n - 1 }).reduce(
+//     (acc, _, index) => {
+//       acc.push(acc[index] + acc[index + 1]);
+//       return acc;
+//     },
+//     initialValues
+//   );
+
+//   return fibonacciSequence;
+// }
+// const nTerms = 10;
+// const fibonacciSequence = generateFibonacci(nTerms);
+// console.log(`Fibonacci Sequence (first ${nTerms} terms): ${fibonacciSequence}`);
+
+// write a function to find missing number in the array
+
+// function missing_Number(array) {
+//   const findNumber = array.forEach((element, index, arr) => {
+//     if (element + 1 != arr[index + 1]) {
+//       return element + 1;
+//     }
+//   });
+//   return findNumber;
+// }
+
+// console.log(missing_Number([1, 2, 3, 5]));
+
+// Given an array of numbers, use the map method to create a new array where each number is squared.
+
+// function Element_Sqaured(array) {
+//   return array.map((element) => element ** element);
+// }
+
+// console.log(Element_Sqaured([1, 2, 3, 4, 5]));
+
+// Given an array of strings, use the map method to capitalize the first letter of each word.
+
+function tittle_Case(string) {
+  return string
+    .split(" ")
+    .map((element) => element.charAt(0).toUpperCase() + element.slice(1))
+    .join(" ");
+}
+
+console.log(tittle_Case("the quick born fox"));
