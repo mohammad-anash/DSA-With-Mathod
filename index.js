@@ -1231,11 +1231,557 @@
 
 // Given an array of strings, use the map method to capitalize the first letter of each word.
 
-function tittle_Case(string) {
-  return string
-    .split(" ")
-    .map((element) => element.charAt(0).toUpperCase() + element.slice(1))
-    .join(" ");
-}
+// function tittle_Case(string) {
+//   return string
+//     .split(" ")
+//     .map((element) => element.charAt(0).toUpperCase() + element.slice(1))
+//     .join(" ");
+// }
 
-console.log(tittle_Case("the quick born fox"));
+// console.log(tittle_Case("the quick born fox"));
+
+// Likhein ek function jo ek string mein kitne unique characters hain, yeh return kare.
+
+// function countUniqueCharacters(string) {
+//   const breakStr = string.split("");
+//   const removeRepeated = Array.from(new Set(breakStr)).join("");
+//   return removeRepeated.length;
+// }
+// console.log(countUniqueCharacters("progarmming"));
+
+// Second Approch
+
+// function countUniqueCharacters(string) {
+//   let count = 0;
+//   const breakStr = string.split("");
+//   Array.from(new Set(breakStr)).filter((element, index, arr) => {
+//     if (element != arr[index + 1]) {
+//       count++;
+//     }
+//   });
+//   return count;
+// }
+// console.log(countUniqueCharacters("anash"));
+
+// Likhein ek function jo ek array ko diye gaye steps ke hisab se right ya left rotate kare.
+
+// const rotateArray = (array, n) => array.slice(n).concat(array.slice(0, n));
+
+// console.log(rotateArray([1, 2, 3, 4, 5], 2));
+// // Output: [3, 4, 5, 1, 2]
+
+// Given an array containing n distinct numbers taken from the range 0 to n, find the one that is missing from the array.
+
+// function missingNumber(array) {
+//   return array.find((element, index) => element + 1 !== array[index + 1]) + 1;
+// }
+
+// console.log(missingNumber([1, 2, 3, 5]));
+
+// write  a function and find the sum of two number complete this sum go to the next two number and ind the sum
+
+// function NextTwoNumber(array) {
+//   const store = [];
+//   for (let i = 0; i < array.length; i += 2) {
+//     store.push(array[i] + array[i + 1]);
+//   }
+//   let maxNumber = array[0];
+//   for (let j = 0; j < store.length; j++) {
+//     if ((maxNumber = store[j])) {
+//       maxNumber = store[j];
+//     }
+//   }
+//   return maxNumber;
+// }
+// console.log(NextTwoNumber([1, 2, 3, 4, 5, 6]));
+
+// write a function to generate fab serires of even number
+
+// function FabSeriesEven(n) {
+//   const arr = [0, 1];
+
+//   for (let i = 2; i < n; i++) {
+//     arr.push(arr[i - 2] + arr[i - 1]);
+//   }
+//   let clutter = [];
+//   for (let j = 0; j < arr.length; j++) {
+//     if (arr[j] % 2 == 0) {
+//       clutter.push(arr[j]);
+//     }
+//   }
+//   return clutter;
+// }
+
+// console.log(FabSeriesEven(8));
+// if string in uppercase then chaneg this case in lower case if string in lower case then chnage string case in uppercase
+
+// function changeCase(inputstring) {
+//   return inputstring
+//     .split("")
+//     .map(
+//       (curr) =>
+//         curr.toUpperCase() == curr ? curr.toLowerCase() : curr.toUpperCase(),
+//       ""
+//     )
+//     .join("");
+// }
+
+// console.log(changeCase("tHE qIUCH bORWN fOX"));
+
+// Write a function that calculates the average of an array of numbers using the reduce method.
+
+// function findAverage(arr) {
+//   return arr.reduce((prev, curr) => (prev += curr), 0) / arr.length;
+// }
+
+// console.log(findAverage([1, 2, 3, 4, 5]));
+
+// Given an array of elements, find the element with the maximum occurrence. Use reduce to achieve this.
+
+// function maxOccurence(array) {
+//   let obj = {};
+
+//   array.forEach(function (element) {
+//     if (obj.hasOwnProperty(element)) {
+//       obj[element]++;
+//     } else {
+//       obj[element] = 1;
+//     }
+//   });
+//   return obj;
+// }
+
+// console.log(maxOccurence([1, 2, 3, 4, 5, 4, 3, 6, 7, 8, 3, 2]));
+
+// write  afunction to find vowel in the string
+
+// function vowelfind(string) {
+//   const vowel = "aeiou";
+//   return string
+//     .split("")
+//     .reduce((prev, curr) => (vowel.includes(curr) ? prev + curr : prev));
+// }
+
+// console.log(vowelfind("this is the string"));
+
+// write a function to count vowel and consonant in the given string
+
+// function findvowel_Consonant(string) {
+//   const replaceSpace = string.replaceAll(" ", "");
+//   const vowel = "aeiou";
+//   let ConsCount = 0;
+//   let vowelCount = 0;
+//   replaceSpace.split("").filter((element) => {
+//     if (vowel.includes(element)) {
+//       vowelCount++;
+//     } else {
+//       ConsCount++;
+//     }
+//   });
+//   return {
+//     vowel: `${vowelCount}`,
+//     Consonant: `${ConsCount}`,
+//   };
+// }
+
+// console.log(findvowel_Consonant("this is the string"));
+
+// Write a program to print a pattern of asterisks in the shape of a right-angled triangle. The number of rows should be taken as input from the user.
+
+// for (let i = 0; i <= 5; i++) {
+//   for (let j = 1; j <= i; j++) {
+//     document.write("*");
+//   }
+//   document.write("<br>");
+// }
+
+// Given a string, write a program to reverse the order of words in the string.
+
+// function reverseString(string) {
+//   return string.split(" ").reverse().join(" ");
+// }
+
+// console.log(reverseString("Coding Is Fun"));
+
+// with loop
+
+// function reverseString(string) {
+//   const breakString = string.split(" ");
+//   let newstring = "";
+//   for (let i = breakString.length - 1; i >= 0; i--) {
+//     newstring += breakString[i] + " ";
+//   }
+//   return newstring;
+// }
+
+// console.log(reverseString("Coding Is Fun"));
+
+// Given an object, write a function that returns an array of all the values in the object that are numbers.
+
+// const data = {
+//   name: "John",
+//   age: 25,
+//   city: "New York",
+//   score: 90,
+// };
+
+// function getNumberValues(obj) {
+//   const storeKeys = [];
+//   for (const key in obj) {
+//     if (typeof obj[key] == "number") {
+//       storeKeys.push(obj[key]);
+//     }
+//   }
+//   return storeKeys;
+// }
+
+// console.log(getNumberValues(data)); // Output: [25, 90]
+
+// Write a function to generate the following number pattern.
+
+// function generateNumberPattern(number) {
+//   for (let i = 1; i <= number; i++) {
+//     for (let j = 1; j < 5; j++) {
+//       document.write(j);
+//     }
+//     document.write("<br>");
+//   }
+// }
+
+// console.log(generateNumberPattern(4));
+
+// Write a function that takes an array of strings and returns a new array that only contains strings with more than three characters.
+
+// function filterWords(array) {
+//   const store = [];
+
+//   for (let i = 0; i < array.length; i++) {
+//     if (array[i].length > 3) {
+//       store.push(array[i]);
+//     }
+//   }
+//   return store;
+// }
+
+// const words = ["cat", "dog", "elephant", "lion", "tiger"];
+// console.log(filterWords(words));
+
+// write a function to convert normal array to chunkarray
+
+// function chunkArray(array, chunkSize) {
+//   const store = [];
+
+//   for (let i = 0; i < array.length; i += chunkSize) {
+//     store.push(array.slice(i, i + chunkSize));
+//   }
+//   return store;
+// }
+
+// console.log(chunkArray([1, 2, 3, 4, 5, 6], 2));
+
+// Given a square matrix, rotate it 90 degrees clockwise in place.
+// const matrix = [
+//   [1, 2, 3],
+//   [4, 5, 6],
+//   [7, 8, 9],
+// ];
+
+// function rotateMatrix(matrix) {
+//   const size = matrix.length;
+//   // Transpose the matrix
+//   for (let i = 0; i < size; i++) {
+//     for (let j = i; j < size; j++) {
+//       // Swap matrix[i][j] with matrix[j][i]
+//       const temp = matrix[i][j];
+//       matrix[i][j] = matrix[j][i];
+//       matrix[j][i] = temp;
+//     }
+//   }
+
+//   // Reverse each row
+//   for (let i = 0; i < size; i++) {
+//     matrix[i].reverse();
+//   }
+// }
+
+// rotateMatrix(matrix);
+// console.log(matrix);
+
+// Write a recursive function to calculate the sum of digits of a given number.
+
+// function sumOfDigits(number) {
+//   const convertIt = number.toString().split("");
+//   let sum = 0;
+//   for (let i = 0; i < convertIt.length; i++) {
+//     const convertInNumber = Number(convertIt[i]);
+//     sum += convertInNumber;
+//   }
+//   return sum;
+// }
+
+// console.log(sumOfDigits(123));
+
+// Implement a function that performs the union of two arrays (removing duplicates).
+
+// const array1 = [1, 2, 3];
+// const array2 = [3, 4, 5];
+
+// function unionArrays(arr1, arr2) {
+//   const result = [];
+//   const combine = arr1.concat(arr2);
+//   for (let i = 0; i < combine.length; i++) {
+//     if (!result.includes(combine[i])) {
+//       result.push(combine[i]);
+//     }
+//   }
+//   return result;
+// }
+// console.log(unionArrays(array1, array2)); // Output: [1, 2, 3, 4, 5]
+
+// Write a function that checks if a given number is a palindromic number.
+
+// function isPalindromicNumber(number) {
+//   const convertIt = number.toString().split("");
+//   const store = [];
+//   for (let i = convertIt.length - 1; i >= 0; i--) {
+//     const convertInNumber = Number(convertIt[i]);
+//     store.push(convertInNumber);
+//   }
+//   return Number(store.join("")) === number;
+// }
+
+// console.log(isPalindromicNumber(121)); // Output: true
+// console.log(isPalindromicNumber(123)); // Output: false
+
+// SECOND APPROCH
+
+// function isPalindromicNumber(number) {
+//   return number === Number(number.toString().split("").reverse().join(""));
+// }
+
+// console.log(isPalindromicNumber(121)); // Output: true
+// console.log(isPalindromicNumber(123)); // Output: false
+
+// property "status" with the value "active" if the object has a property "isActive" set to true.
+
+// const inputArray = [
+//   { id: 1, isActive: true, name: "John" },
+//   { id: 2, isActive: false, name: "Jane" },
+//   { id: 3, isActive: true, name: "Doe" },
+// ];
+
+// function transformObjects(array) {
+//   const transfornedArray = [];
+
+//   for (const item of array) {
+//     const newitem = { ...item };
+
+//     if (newitem.isActive) {
+//       newitem.status = "active";
+//     }
+//     transfornedArray.push(newitem);
+//   }
+//   return transfornedArray;
+// }
+
+// console.log(transformObjects(inputArray));
+
+// SECOND APPOCH
+
+// const inputArray = [
+//   { id: 1, isActive: true, name: "John" },
+//   { id: 2, isActive: false, name: "Jane" },
+//   { id: 3, isActive: true, name: "Doe" },
+// ];
+
+// function transformObjects(array) {
+//   return array.reduce((prev, curr) => {
+//     if (curr.isActive) {
+//       curr.Status = "active";
+//     }
+//     prev.push(curr);
+//     return prev;
+//   }, []);
+// }
+
+// console.log(transformObjects(inputArray));
+
+// THIRD APPAOCH
+
+// const inputArray = [
+//   { id: 1, isActive: true, name: "John" },
+//   { id: 2, isActive: false, name: "Jane" },
+//   { id: 3, isActive: true, name: "Doe" },
+// ];
+
+// function transformObjects(array) {
+//   return array.map((element) => {
+//     if (element.isActive) {
+//       element.Status = "active";
+//     }
+//     return element;
+//   });
+// }
+
+// console.log(transformObjects(inputArray));
+
+// write a function to print this type of traingle
+// 1
+// 22
+// 333
+// 4444
+// 55555
+
+// for (let i = 1; i <= 5; i++) {
+//   for (let j = 1; j <= i; j++) {
+//     document.write(i);
+//   }
+//   document.write("<br>");
+// }
+
+// Question: Write a function to check if one string is a rotation of another. For example, "waterbottle" is a rotation of "erbottlewat."
+
+// function stringRotation(string, n) {
+//   const breakstring = string.split("");
+//   for (let i = 0; i < n; i++) {
+//     const getvalue = breakstring.shift();
+//     breakstring.push(getvalue);
+//   }
+//   return breakstring.join("");
+// }
+
+// console.log(stringRotation("application", 4));
+
+// SECOND APPROCH
+
+// function stringRotation(string, n) {
+//   return string.slice(n) + string.slice(0, n);
+// }
+
+// console.log(stringRotation("application", 4));
+
+// write a function to find the even number sum
+
+// function Even_Sum(array) {
+//   let sum = 0;
+//   array.filter((element) => (element % 2 == 0 ? (sum += element) : element));
+//   return sum;
+// }
+// console.log(Even_Sum([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]));
+
+// with reduce method
+
+// function Even_Sum(array) {
+//   return array.reduce((prev, curr) => (curr % 2 == 0 ? (prev += curr) : prev), 0);
+// }
+
+// console.log(Even_Sum([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]));
+
+// Array ke elements ka product nikalein jinme 'a' shabd shuru hota hai:
+
+// const words = ["apple", "banana", "avocado", "orange", "kiwi"];
+
+// function findproduct(arr) {
+//   const checkletter = arr
+//     .filter((element) => element.startsWith("a"))
+//     .reduce((prev, curr) => {
+//       prev += curr.length;
+//       return prev;
+//     }, 0);
+
+//   return checkletter;
+// }
+
+// console.log(findproduct(words));
+
+// write a function to find product with odd number
+
+// const numbers = [1, 2, 3, 4, 5];
+
+// function findProduct(arr) {
+//   let product = 1;
+//   arr.filter((element) => (element % 2 != 0 ? (product *= element) : product));
+//   return product;
+// }
+
+// console.log(findProduct(numbers));
+
+// SECOND APPROCH
+
+// function findproduct(array) {
+//   return array.reduce(
+//     (prev, curr) => (curr % 2 != 0 ? (prev *= curr) : prev),
+//     1
+//   );
+// }
+
+// console.log(findproduct([1, 2, 3, 4, 5]));
+
+// write a function to find product of positve number
+
+// function positiveProduct(array) {
+//   let product = 1;
+//   array.filter((element) => (element > 0 ? (product *= element) : element));
+//   return product;
+// }
+
+// console.log(positiveProduct([1, 2, 3, -4, -2, -6]));
+
+// function positiveProduct(array) {
+//   let product = 1;
+//   array.filter((element) => (element > 0 ? (product *= element) : element));
+//   return product;
+// }
+
+// console.log(positiveProduct([1, 2, 3, -4, -2, -6]));
+
+// SECOND APPROCH
+
+// function positiveProduct(array) {
+//   return array.reduce(
+//     (product, element) => element > 0 ? (product *= element) : element,
+//     1
+//   );
+// }
+
+// console.log(positiveProduct([1, 2, 3, -4, -2, -6]));
+
+// Array ke words ka length calculate karein, lekin only odd length wale words ka:
+
+// const words = ["apple", "banana", "kiwi", "orange"];
+// function oddlength(words) {
+//   return words
+//     .filter((element) => element.length % 2 !== 0)
+//     .map((element) => element.length);
+// }
+
+// console.log(oddlength(words));
+
+// Question: Create an algorithm to find the index of a specific element in an array.
+// Example: In the array [10, 4, 6, 8, 15], find the index of the element 6. The answer should be 2.
+
+// function findIndex(array, findelement) {
+//   return array.indexOf(findelement);
+// }
+
+// console.log(findIndex([10, 4, 6, 8, 15], 6));
+
+// Question: Develop an algorithm to calculate the factorial of a non-negative integer.
+// Example: Calculate the factorial of 5 (5!) using your algorithm. The result should be 120.
+
+// pending
+
+// function factorial(n) {
+//   return Array.from({ length: n }).map((element) => console.log(n));
+// }
+
+// console.log(factorial(5));
+
+// Question: Create an algorithm to reverse a linked list.
+// Example: Given a linked list: 1 -> 2 -> 3 -> 4, reverse it to become 4 -> 3 -> 2 -> 1.
+
+// function reverseLinkdinLiest(string) {
+//   return string.toString().split("").reverse().join("");
+// }
+
+// console.log(reverseLinkdinLiest("1->2->3->4"));
